@@ -1,0 +1,182 @@
+<!-- 
+    Este script se agregaron elementos para poder mostrar como afectará el css a la página.
+    
+    Cambios: 
+    Se envolvieron algunos elementos en divs para poder asignarles clases.
+
+    En el head se incluye un link al css. Esta es una forma de agregarle estilo a la página. 
+    Además, hicimos un link a una página que nos permite ocupar fonts de google. 
+
+    Se agregaron 2 botones nuevos (quiz-options).
+
+    En el footer se agregaron tags img que hacen referencia a fotografías en el sitio picsum.
+ -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8"> 
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Gyllenhaal Experiment</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <header>
+        <a href="https://pudding.cool/">Informe</a>
+    </header>
+    <div>
+    </div>
+    <main>
+        <section id="intro">
+            <h1 class="big">
+                <span>Examen | IIC2026 - Visualización de Información</span>
+            </h1>
+            <p class="big">
+                Fabián Ortega Llantén
+            </p>
+        </section>
+        <section id="prelude">
+            <div class="prose">
+                
+            </div>
+        </section>
+        <section id="tutorial">
+            <div class="prose">
+
+                <h1>Primer nivel: Caracterización de
+                    dominio</h1>
+                <h3>
+                    Contexto de los datos
+                </h3>
+                <p>
+                    Se utilizará el dataset mbti_anime.csv disponible aquí. El cual fue brindado por 
+                    El profesor Hernán Felipe Valdivieso López y un amigo de el, donde utilizaron la tecnica de web scraping para extraer 
+                    la Información del tipo de personalidad de personajes de anime y manga del sitio web:
+
+                    <a href="https://www.personality-database.com/"> <span class="bold-text"></span>Personality-database</span></a>
+                </p>
+                
+                <p>
+                    El data set original fue filtrado ya que para esta visualización solo eran necesario los datos de Anime, y el tipo de personalidad
+                    del test de <a href="https://mvpcluster.com/conoce-tu-personalidad/"> Myers-Briggs </a>, excluyendo los datos pertenecientes al Eneagrama.
+                    
+                    <p>
+                </p>
+                    El dataset Filtrado lo puedes encontrar en:
+                    <a href="https://raw.githubusercontent.com/anomvlito/visualizacion-de-la-informacion-2022/main/animes.csv"> animes.csv</a>
+                     
+                </p>
+
+
+                <p>
+                    En si, el dataset nos presenta información básica del tipo de personalidad de los personajes
+                    el grupo de Mbti en el cual encajan y el anime al cual pertenecen, sin olvidar la cantidad de votos que recibieron para ser categorizados en esa personalidad.
+                    Cada personaje puede tener una de las siguientes personalidades pertenecientes a 4 grupos distintos:
+                
+
+                <p id="Analistas">  Analistas: INTJ-INTP-ENTJ-ENTP </p>
+                <p id="Diplomaticos"> Diplomáticos:INFJ-INFP-ENFJ-ENFP </p>
+                <p id="Exploradores"> Exploradores: ISTP-ISFP-ESTP-ESFP</p>
+                <p id="Sentinelas"> Centinelas: ISTJ-ISFJ-ESTJ-ESFJ</p>    
+                                  
+
+
+                </p>
+
+                <h1> Potencial usuario objetivo de la herramienta y tipo de uso que
+                    tendrá la herramienta</h1>
+
+                <p>
+                El usuario objetivo al cual se apunta es aquella persona otaku que quiere conocer el tipo de personalidad de sus personajes favoritos del anime.
+
+                    
+                     
+                </p>
+                <p>A partir de esta herramienta se espera que el usuario pueda identificar el tipo de personalidad 
+                    de algunos personajes del anime y evaluar por su propia cuenta si es que hay una tendencia con respecto
+                    a que personajes reciben más atención al ser clasificados y si es que hay alguna tendencia con respecto a los grupos a los cuales pertenecen.
+
+                </p>-
+
+                <h1> Abstracción de datos y tareas</h1>
+                <h2> Tarea 1: descubrir el tipo de personalidad de personajes del anime</h2>
+                <p> El usuario será capas de explorar la visualización y descubrir que tipo de personalidad tiene 
+                    cada personaje de anime. </p>
+                <h2> Tarea 2: Descubrir tendencias en el tipo de personalidad de los personajes</h2>
+                <p> A medida el usuario elija la cantidad de votos necesarios para aparecer en la visualización
+                    este podrá juzgar por su cuenta si es que existe una tendencia con respecto a que tipo de personalidad predomina</p>
+                
+                 <h2> Tarea 3: Descubrir popularidad</h2>
+                <p> El usuario podrá comparar la popularidad entre personajes según el tamaño de las circunferencias presentes
+                    en la visualización, en especifico la cantidad de area.</p>
+                 <h2> Tarea 4: jugar con la visualización</h2>
+                <p> El usuario podrá jugar con los nodos y estos se repelerán entre sí haciendo más divertida la visualización </p>
+                
+                <h1> Segundo nivel: Abstracción de datos</h1>
+                <p> Para esta visualización, con respecto de los datos de tipo singular las entidades principales son ítems
+                    (los personajes y su personalidad) y enlaces (relación entre grupos y anime a los cuales  pertenecen). 
+                </p>
+                <h3> En cuanto a atributos, tenemos:</h3>
+                <p> <b>Cantidad de votos:</b> Tipo Ordenado, cuantitativo.</p>
+                <p> <b>Nombre:</b> del tipo categórico (y llave si hubiera hecho la segunda visualización</p>
+                <p> <b>Anime al que pertenecen:</b> del tipo categórico  </p>
+                <p> <b>Mbti:</b> del tipo categórico </p>
+                <p> <b>Grupo:</b> del tipo categórico </p>
+
+                <h1> Tercer nivel: Abstracción de datos</h1>
+                <h3> Para abordar las tareas se utilizaron las siguientes
+                    marcas, canales, idioms visuales, idioms de interacción y
+                    decisiones de diseño:
+                     </h3>
+                <p> <b>Color de los personajes (CANAL) </b> se codifico en 4 colores distintos, correspondientes 
+                a cada grupo en especifico
+                <p id="Analistas">  Analistas: </p>
+                <p id="Diplomaticos"> Diplomáticos</p>
+                <p id="Exploradores"> Exploradores</p>
+                <p id="Sentinelas"> Centinelas: </p>Esto aporta a cumplir la Segunda Tarea Principal, ademas en parte de ya
+            conocer los 4 posibles mbti del personaje que ayuda a cumplir con la tarea 1.   </p>
+                
+                <p> <b> Visualización estilo circular Packing  (Idiom visual)</b>
+                    Nos ayuda la tarea 4 al ser comodo utilizar circunferencias que reaccionen con fuerza con respecto a los demas.
+                    Nos ayuda a la tarea 3, al tener un orden especifico en la visualizacion.
+                </p>
+                <p> <b> Más votados al centro (Canal)</b>
+                    Ayuda a la tarea 3, los más populares la medio 
+                </p>
+
+                <p> <b> Filtro por popularidad (Idiom de interacción)
+                    </b>
+                    Ayuda a la tarea 3, 4 y 2,
+                </p>
+                <p> <b> Color (Canal)
+                    </b>
+                    Ayuda a la tarea 2
+                </p>
+                <p> <b> Area (Canal)
+                    </b>
+                    Ayuda a la tarea 3 al poder comparar popularidad por tamaño de area.
+                </p>
+                
+
+                
+
+                    
+                
+                
+
+                <a href="index2.html"> Accede a la  Visualizacion</a>
+                
+                
+            </div>
+        </section>
+        
+       
+              
+    </footer>
+
+
+</body>
+</html>
